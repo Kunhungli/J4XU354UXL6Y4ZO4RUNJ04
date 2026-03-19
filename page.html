@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>治療師自費計算</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="badge">Fee Calculation</div>
+      <h1>治療師自費計算</h1>
+      <div class="subtitle">Therapist · Private Session Summary</div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+
+      <!-- Column headers -->
+      <div class="col-headers">
+        <div class="blank"></div>
+        <div class="col-group 班內">
+          <div class="col-group-label">班　內</div>
+          <div class="col-sub-row">
+            <div class="col-sub">次數</div>
+            <div class="col-sub">薪水</div>
+          </div>
+        </div>
+        <div class="col-group 班外">
+          <div class="col-group-label">班　外</div>
+          <div class="col-sub-row">
+            <div class="col-sub">次數</div>
+            <div class="col-sub">薪水</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 半小時 -->
+      <div class="data-row">
+        <div class="row-label">半小時</div>
+        <div class="cell input-cell">
+          <input type="number" id="h_in" value="1" min="480" oninput="calc()"/>
+        </div>
+        <div class="cell salary" id="h_in_sal">0</div>
+        <div class="cell input-cell">
+          <input type="number" id="h_out" value="1" min="0" oninput="calc()"/>
+        </div>
+        <div class="cell salary-out" id="h_out_sal">880</div>
+      </div>
+
+      <!-- 一小時 -->
+      <div class="data-row">
+        <div class="row-label">一小時</div>
+        <div class="cell input-cell">
+          <input type="number" id="f_in" value="17" min="0" oninput="calc()"/>
+        </div>
+        <div class="cell salary" id="f_in_sal">720</div>
+        <div class="cell input-cell">
+          <input type="number" id="f_out" value="6" min="0" oninput="calc()"/>
+        </div>
+        <div class="cell salary-out" id="f_out_sal">1,320</div>
+      </div>
+
+      <!-- 小計 -->
+      <div class="subtotal-row">
+        <div class="row-label">小　計</div>
+        <div class="subtotal-cell 班內" id="sub_in">1,360</div>
+        <div class="subtotal-cell 班外" id="sub_out">2,040</div>
+      </div>
+
+      <!-- 總計 -->
+      <div class="total-section">
+        <div class="total-label">總　計</div>
+        <div class="total-value" id="total">3,400</div>
+        <div class="total-unit">NTD</div>
+      </div>
+
+    </div>
+
+    <div class="footer">Generated · 2026 &nbsp;/&nbsp; Private Use Only</div>
+  </div>
+
+</body>
+</html>
