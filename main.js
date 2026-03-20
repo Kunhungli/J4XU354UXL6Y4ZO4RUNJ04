@@ -1,10 +1,27 @@
 // 費率設定（每次）
 const RATE = {
-  half_in:  480,     // 班內半小時
-  half_out: 720,   // 班外半小時
-  full_in:  880,   // 班內一小時
-  full_out: 1320,  // 班外一小時
+  half_in:  localStorage.getItem('__h_in__') || 0,  // 班內半小時
+  half_out: localStorage.getItem('__h_out__') || 0, // 班外半小時
+  full_in:  localStorage.getItem('__f_in__') || 0,  // 班內一小時
+  full_out: localStorage.getItem('__f_out__') || 0, // 班外一小時
 };
+
+if (!RATE.half_in) {
+  RATE.half_in = Number(prompt("請輸入 班內半小時的$$：", "0"));
+  localStorage.setItem('__h_in__', RATE.half_in)
+}
+if (!RATE.half_out) {
+  RATE.half_out = Number(prompt("請輸入 班外半小時的$$：", "0"));
+  localStorage.setItem('__h_out__', RATE.half_out)
+}
+if (!RATE.full_in) {
+  RATE.full_in = Number(prompt("請輸入 班內一小時的$$：", "0"));
+  localStorage.setItem('__f_in__', RATE.half_in)
+}
+if (!RATE.full_out) {
+  RATE.full_out = Number(prompt("請輸入 班外一小時的$$：", "0"));
+  localStorage.setItem('__f_out__', RATE.half_in)
+}
 
 function fmt(n) {
   return n.toLocaleString('zh-TW');
