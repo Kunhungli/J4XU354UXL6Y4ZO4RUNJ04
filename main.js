@@ -70,7 +70,7 @@ window.onload = function () {
       inputEl.addEventListener('focus', () => {
         let sal = localStorage.getItem(`__${id}__`) || 0;
         if (!sal) {
-          sal = Number(prompt(`請輸入 ${RATE_CONTENT[id]}的$$：`, "0"));
+          sal = Number(prompt(`請輸入 ${RATE_CONTENT[id]} 抽成後的$$：`, "0"));
           RATE[id] = sal;
           localStorage.setItem(`__${id}__`, sal)
         }
