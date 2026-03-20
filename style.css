@@ -285,3 +285,168 @@ body {
   color: var(--muted);
   letter-spacing: 0.08em;
 }
+
+/* ── Dialog (rate table) ── */
+#myDialog {
+  font-family: 'Noto Serif TC', serif;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 0;
+  min-width: 300px;
+  max-width: 360px;
+  width: 92%;
+  margin: 20vh auto auto;
+  overflow: hidden;
+}
+
+#myDialog::backdrop {
+  background: rgba(26, 22, 18, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+#dialogTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.7);
+  background: var(--ink);
+  padding: 0.75rem 1.1rem;
+  margin: 0;
+}
+
+/* ── Rate table ── */
+.rate-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.rate-header-row,
+.rate-data-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+}
+
+.rate-data-row {
+  border-top: 1px solid var(--border);
+}
+
+.rate-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.4rem;
+  font-size: 0.82rem;
+  border-right: 1px solid var(--border);
+}
+.rate-cell:last-child { border-right: none; }
+
+/* header row */
+.rate-header-row {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.rate-cell.header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.45rem 0.4rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.rate-cell.header:last-child { border-right: none; }
+.rate-cell.header.班內 { color: #a8d8cf; }
+.rate-cell.header.班外 { color: var(--gold); }
+.rate-cell.blank { background: var(--ink); }
+
+/* label column */
+.rate-cell.label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  background: rgba(46,107,94,0.04);
+  justify-content: center;
+}
+
+/* input cells */
+.rate-cell.input-wrap {
+  padding: 0.45rem 0.5rem;
+  position: relative;
+}
+.rate-cell.input-wrap:focus-within {
+  background: var(--accent-light);
+}
+.rate-cell.input-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 20%;
+  right: 20%;
+  height: 1.5px;
+  background: var(--border);
+  border-radius: 1px;
+  transition: background 0.15s;
+}
+.rate-cell.input-wrap:focus-within::after {
+  background: var(--accent-mid);
+}
+
+.rate-cell.input-wrap input {
+  width: 100%;
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.rate-cell.input-wrap input:focus {
+  color: var(--accent);
+}
+.rate-cell.input-wrap input::placeholder {
+  color: var(--border);
+}
+
+/* ── Actions ── */
+.rate-actions {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  border-top: 1px solid var(--border);
+  background: rgba(46,107,94,0.03);
+}
+
+.rate-actions button {
+  flex: 1;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-clear {
+  background: transparent;
+  color: var(--muted);
+}
+.btn-clear:hover {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.btn-confirm {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.btn-confirm:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}

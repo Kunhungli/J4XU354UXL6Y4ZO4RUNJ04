@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>治療師自費計算</title>
   <link rel="stylesheet" href="style.css">
   <script src="main.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 </head>
+
 <body>
   <div class="wrapper">
 
     <!-- Header -->
     <div class="header">
-      <div class="badge" onclick="resetClick();">Fee Calculation</div>
+      <div class="badge" onclick="openRateDialog();">Fee Calculation</div>
       <h1>治療師自費計算</h1>
       <div class="subtitle">Therapist · Private Session Summary</div>
     </div>
@@ -44,11 +48,11 @@
       <div class="data-row">
         <div class="row-label">半小時</div>
         <div class="cell input-cell">
-          <input type="number" id="h_in" value="" inputmode="numeric" min="0" oninput="calc()"/>
+          <input type="number" id="h_in" value="" min="0" oninput="calc()" />
         </div>
         <div class="cell salary" id="h_in_sal">0</div>
         <div class="cell input-cell">
-          <input type="number" id="h_out" value="" inputmode="numeric" min="0" oninput="calc()"/>
+          <input type="number" id="h_out" value="" min="0" oninput="calc()" />
         </div>
         <div class="cell salary-out" id="h_out_sal">0</div>
       </div>
@@ -57,11 +61,11 @@
       <div class="data-row">
         <div class="row-label">一小時</div>
         <div class="cell input-cell">
-          <input type="number" id="f_in" value="" inputmode="numeric" min="0" oninput="calc()"/>
+          <input type="number" id="f_in" value="" min="0" oninput="calc()" />
         </div>
         <div class="cell salary" id="f_in_sal">0</div>
         <div class="cell input-cell">
-          <input type="number" id="f_out" value="" inputmode="numeric" min="0" oninput="calc()"/>
+          <input type="number" id="f_out" value="" min="0" oninput="calc()" />
         </div>
         <div class="cell salary-out" id="f_out_sal">0</div>
       </div>
@@ -85,5 +89,39 @@
     <div class="footer">Generated · 2026 &nbsp;/&nbsp; Private Use Only</div>
   </div>
 
+ <dialog id="myDialog">
+  <p id="dialogTitle" class="header">請輸入費率</p>
+  <div class="rate-table">
+    <div class="rate-header-row">
+      <div class="rate-cell blank"></div>
+      <div class="rate-cell col-group-label 班內">班　內</div>
+      <div class="rate-cell col-group-label 班外">班　外</div>
+    </div>
+    <div class="rate-data-row">
+      <div class="rate-cell label">半小時</div>
+      <div class="rate-cell input-wrap">
+        <input type="text" inputmode="numeric" pattern="[0-9]*" id="rate_h_in" placeholder="0"/>
+      </div>
+      <div class="rate-cell input-wrap">
+        <input type="text" inputmode="numeric" pattern="[0-9]*" id="rate_h_out" placeholder="0"/>
+      </div>
+    </div>
+    <div class="rate-data-row">
+      <div class="rate-cell label">一小時</div>
+      <div class="rate-cell input-wrap">
+        <input type="text" inputmode="numeric" pattern="[0-9]*" id="rate_f_in" placeholder="0"/>
+      </div>
+      <div class="rate-cell input-wrap">
+        <input type="text" inputmode="numeric" pattern="[0-9]*" id="rate_f_out" placeholder="0"/>
+      </div>
+    </div>
+  </div>
+  <div class="rate-actions">
+    <button class="btn-clear" onclick="clearRates()">清除</button>
+    <button class="btn-confirm" onclick="confirmRates()">確定</button>
+  </div>
+</dialog>
+
 </body>
+
 </html>
