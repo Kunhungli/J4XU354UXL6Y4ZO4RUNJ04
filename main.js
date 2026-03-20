@@ -48,3 +48,22 @@ function calc() {
 document.querySelectorAll('.cell.input-cell').forEach(cell => {
   cell.addEventListener('click', () => cell.querySelector('input').focus());
 });
+
+// 定義所有的輸入框 ID
+const inputIds = ['h_in', 'h_out', 'f_in', 'f_out'];
+
+// DOM 載入後才添加監聽
+window.onload = function() {
+  inputIds.forEach(id => {
+    const inputEl = document.getElementById(id);
+    const ssEl = document.getElementById(`${id}_sal`);
+    
+    if (inputEl && ssEl) {
+      // 當點擊（獲得焦點）時觸發
+      inputEl.addEventListener('focus', () => {
+        inputEl.value = '';     // 清空輸入框
+        calc(); // 將對應的 DIV 顯示為 0
+      });
+    }
+  });
+};
