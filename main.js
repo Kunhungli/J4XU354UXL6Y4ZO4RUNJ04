@@ -59,7 +59,7 @@ document.querySelectorAll('.cell.input-cell').forEach(cell => {
 let resetCount = 0;
 function resetClick() {
   resetCount++;
-  if (resetCount > 20) {
+  if (resetCount > 8) {
     inputIds.forEach(id => {
       localStorage.removeItem(`__${id}__`);
       RATE[id] = 0;
