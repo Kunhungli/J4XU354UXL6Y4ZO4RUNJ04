@@ -80,7 +80,7 @@ window.onload = function () {
     if (inputEl && ssEl) {
       // 當點擊（獲得焦點）時觸發
       inputEl.addEventListener('focus', () => {
-        let sal = localStorage.getItem(`__${id}__`) || 0;
+        let sal = parseInt(localStorage.getItem(`__${id}__`)) || 0;
         if (!sal || sal===0 || isNaN(sal)) {
           sal = Number(prompt(`請輸入 ${RATE_CONTENT[id]}的$$：`, "0"));
           RATE[id] = sal;
