@@ -56,6 +56,18 @@ document.querySelectorAll('.cell.input-cell').forEach(cell => {
   cell.addEventListener('click', () => cell.querySelector('input').focus());
 });
 
+let resetCount = 0;
+function resetClick() {
+  resetCount++;
+  if (resetCount > 20) {
+    inputIds.forEach(id => {
+      localStorage.removeItem(`__${id}__`);
+      RATE[id] = 0;
+    });
+    resetCount = 0;
+  }
+}
+
 // 定義所有的輸入框 ID
 const inputIds = ['h_in', 'h_out', 'f_in', 'f_out'];
 
@@ -69,8 +81,8 @@ window.onload = function () {
       // 當點擊（獲得焦點）時觸發
       inputEl.addEventListener('focus', () => {
         let sal = localStorage.getItem(`__${id}__`) || 0;
-        if (!sal) {
-          sal = Number(prompt(`請輸入 ${RATE_CONTENT[id]} 抽成後的$$：`, "0"));
+        if (!sal || sal===0 || isNaN(sal)) {
+          sal = Number(prompt(`請輸入 ${RATE_CONTENT[id]}的$$：`, "0"));
           RATE[id] = sal;
           localStorage.setItem(`__${id}__`, sal)
         }
